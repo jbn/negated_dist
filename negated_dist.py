@@ -41,9 +41,8 @@ def _negated_stats(dist):
 
 
 def _negated_moment(dist):
-    def _f(a, *args, **kwargs):
-        negations = np.where(a % 2 == 0, 1, -1)
-        return negations * dist.moment(a, *args, **kwargs)
+    def _f(n, *args, **kwargs):
+        return (-1)**(n) * dist.moment(n, *args, **kwargs)
     return _f
 
 
